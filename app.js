@@ -7,7 +7,7 @@ app.use(express.json());
 
 // root route
 app.get("/", (request, response) => {
-  request.send("Hello employees!");
+  response.send("Hello employees!");
 });
 
 // mount the employees router
@@ -16,7 +16,7 @@ app.use("/employees", employeesRouter);
 // error handler
 app.use((error, request, response, next) => {
   console.error(error.stack);
-  request.status(500).send("Something broke");
+  response.status(500).send("Something broke");
 });
 
 export default app;
